@@ -1,0 +1,9 @@
+# Local exports and BI files can contain large or environment-specific data.
+exports/
+*.pbix
+*.pbit
+*.csv
+*.parquet
+.DS_Store
+Thumbs.db
+
