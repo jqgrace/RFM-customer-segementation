@@ -79,7 +79,7 @@ checks AS (
       'New Customers',
       'Promising',
       'Needs Attention',
-      'Can''t Lose Them',
+      "Can't Lose Them",
       'At Risk',
       'Hibernating'
     ))

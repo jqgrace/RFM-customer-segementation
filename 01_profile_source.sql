@@ -29,7 +29,7 @@ SELECT
   COUNTIF(created_at IS NULL) AS null_created_at_rows,
   COUNTIF(status = 'Complete') AS completed_item_rows
 FROM `bigquery-public-data.thelook_ecommerce.order_items`
-WHERE DATE(created_at) <= DATE '2024-12-31';
+WHERE DATE(created_at) <= DATE '2026-09-30';
 
 -- 4. Check whether the item identifier is unique. If duplicate_ids is not 0,
 -- ROW_NUMBER in the build script keeps one deterministic row per item ID.
@@ -38,5 +38,5 @@ SELECT
   COUNT(DISTINCT id) AS distinct_item_ids,
   COUNT(*) - COUNT(DISTINCT id) AS duplicate_ids
 FROM `bigquery-public-data.thelook_ecommerce.order_items`
-WHERE DATE(created_at) <= DATE '2024-12-31';
+WHERE DATE(created_at) <= DATE '2026-09-30';
 

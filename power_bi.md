@@ -73,7 +73,7 @@ Format revenue measures as currency and `Revenue Share` as a percentage.
 ## Design checks
 
 - Use one color consistently for each segment across charts.
-- Show the fixed analysis date (`2025-01-01`) in the subtitle.
+- Show the fixed analysis date (`2026-10-01`) in the subtitle.
 - Include a note that the data is synthetic and public.
 - Confirm total customers and revenue match the BigQuery segment query.
 - Avoid maps or demographic charts unless they answer the business question.

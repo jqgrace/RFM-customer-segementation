@@ -59,7 +59,7 @@ WITH deduplicated_items AS (
         ORDER BY oi.created_at DESC, oi.order_id DESC
       ) AS row_number
     FROM `your-gcp-project.rfm_customer_segmentation.stg_order_items_snapshot` AS oi
-    WHERE DATE(oi.created_at) <= DATE '2024-12-31'
+    WHERE DATE(oi.created_at) <= DATE '2026-09-30'
   )
   WHERE row_number = 1
 ),

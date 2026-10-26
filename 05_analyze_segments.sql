@@ -39,7 +39,7 @@ SELECT
   monetary_value,
   rfm_code,
   CASE
-    WHEN segment = 'Can''t Lose Them' THEN 'High-priority win-back'
+    WHEN segment = "Can't Lose Them" THEN 'High-priority win-back'
     WHEN segment = 'At Risk' THEN 'Targeted reactivation'
     WHEN segment = 'Champions' THEN 'Reward and referral'
     WHEN segment = 'Loyal Customers' THEN 'Cross-sell and loyalty benefit'
@@ -50,7 +50,7 @@ SELECT
 FROM `your-gcp-project.rfm_customer_segmentation.customer_segments`
 ORDER BY
   CASE segment
-    WHEN 'Can''t Lose Them' THEN 1
+    WHEN "Can't Lose Them" THEN 1
     WHEN 'At Risk' THEN 2
     WHEN 'Champions' THEN 3
     WHEN 'Loyal Customers' THEN 4

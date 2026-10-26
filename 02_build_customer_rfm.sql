@@ -4,7 +4,7 @@
 CREATE OR REPLACE TABLE
   `your-gcp-project.rfm_customer_segmentation.stg_order_items_snapshot`
 OPTIONS (
-  description = 'theLook order items extracted through 2024-12-31'
+  description = 'theLook order items extracted through 2026-09-30'
 ) AS
 SELECT
   oi.id AS order_item_id,
@@ -18,7 +18,7 @@ SELECT
   oi.returned_at,
   CURRENT_TIMESTAMP() AS source_extracted_at
 FROM `bigquery-public-data.thelook_ecommerce.order_items` AS oi
-WHERE DATE(oi.created_at) <= DATE '2024-12-31';
+WHERE DATE(oi.created_at) <= DATE '2026-09-30';
 
 CREATE OR REPLACE TABLE
   `your-gcp-project.rfm_customer_segmentation.customer_rfm_metrics`
@@ -26,8 +26,8 @@ CLUSTER BY user_id AS
 WITH
 parameters AS (
   SELECT
-    DATE '2024-12-31' AS cutoff_date,
-    DATE '2025-01-01' AS analysis_date
+    DATE '2026-09-30' AS cutoff_date,
+    DATE '2026-10-01' AS analysis_date
 ),
 
 -- Select only fields used downstream and apply the fixed observation window.

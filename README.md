@@ -102,8 +102,8 @@ to your Google Cloud project. Check the query estimator before running a query.
 8. Run [`sql/06_power_bi_views.sql`](sql/06_power_bi_views.sql), then follow
    [`docs/power_bi.md`](docs/power_bi.md).
 
-The pipeline uses a fixed analysis cutoff of **2024-12-31**. Purchases after
-that date are excluded, and recency is measured as of **2025-01-01**. Keeping
+The pipeline uses a fixed analysis cutoff of **2026-09-30**. Purchases after
+that date are excluded, and recency is measured as of **2026-10-01**. Keeping
 this date fixed makes portfolio results comparable. File 02 also materializes
 the filtered source rows into the project dataset, so all downstream outputs in
 one project run use the same extracted data. Re-running file 02 refreshes that
@@ -116,8 +116,8 @@ consistently in files 02 and 06.
 
 | Metric | Definition |
 |---|---|
-| Recency | Days between a customer's latest completed purchase and 2025-01-01 |
-| Frequency | Count of distinct completed orders through 2024-12-31 |
+| Recency | Days between a customer's latest completed purchase and 2026-10-01 |
+| Frequency | Count of distinct completed orders through 2026-09-30 |
 | Monetary | Sum of positive `sale_price` across completed order items |
 | R/F/M score | Relative quintile from 1 (lowest) to 5 (highest/best) |
 | RFM code | Three-character concatenation of R, F, and M scores |
@@ -148,11 +148,26 @@ segment.
 
 Fill this section only after executing the queries and saving evidence.
 
+### Frozen snapshot results through 2026-09-30
+
+| Source check | Observed value |
+|---|---:|
+| Snapshot order-item rows | 168,434 |
+| Completed order-item rows | 42,030 |
+| Completed orders | 29,071 |
+| Valid RFM customers | 25,765 |
+| Completed-sales value | $2,521,344.71 |
+
+The snapshot was extracted on 2026-10-24. The customer metrics reconcile exactly
+to its completed rows, orders, and customers. Earlier exploratory counts changed
+when the upstream synthetic public table refreshed, demonstrating why the
+materialized snapshot is necessary for reproducible downstream results.
+
 | Result | Value |
 |---|---:|
-| Valid customers | `TBD` |
-| Valid completed orders | `TBD` |
-| Revenue represented | `TBD` |
+| Valid customers | 25,765 |
+| Valid completed orders | 29,071 |
+| Revenue represented | $2,521,344.71 |
 | Largest segment | `TBD` |
 | Highest-revenue segment | `TBD` |
 | Validation checks passed | `TBD / 8` |

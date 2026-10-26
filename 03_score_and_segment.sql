@@ -44,7 +44,7 @@ SELECT
     WHEN r_score = 3 AND f_score BETWEEN 2 AND 3
       THEN 'Needs Attention'
     WHEN r_score <= 2 AND f_score >= 4 AND m_score >= 4
-      THEN 'Can''t Lose Them'
+      THEN "Can't Lose Them"
     WHEN r_score <= 2 AND f_score >= 3
       THEN 'At Risk'
     ELSE 'Hibernating'

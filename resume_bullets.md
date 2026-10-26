@@ -22,7 +22,7 @@ bracketed placeholders with observed values; never estimate them.
 
 - Built and validated a reproducible BigQuery pipeline over theLook e-commerce
   data, aggregating `[ORDER_ITEM_ROWS]` order-item records into `[CUSTOMERS]`
-  customer-level RFM profiles as of January 1, 2025.
+  customer-level RFM profiles as of October 1, 2026.
 - Used CTEs, `ROW_NUMBER()`, and `NTILE()` window functions to clean transaction
   data, control order/customer grain, and assign recency, frequency, and
   monetary quintiles; achieved `[PASSED]/8` SQL quality checks.
